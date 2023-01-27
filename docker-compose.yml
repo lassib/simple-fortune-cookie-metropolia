@@ -1,0 +1,12 @@
+version: '3'
+services:
+    backend:
+      build: ./backend/
+      ports:  # expose port 5000 to the host
+        - "9000:9000"
+    frontend:
+      build: ./frontend/
+      ports:  # expose port 3000 to the host
+        - "8080:8080"
+      depends_on:  # frontend depends on backend
+        - backend
